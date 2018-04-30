@@ -1,5 +1,6 @@
 from collections import Counter
 
+
 #Priority Queue
 def left(i):
     return (2 * i) + 1
