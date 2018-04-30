@@ -1,13 +1,11 @@
 def left(i):
     return (2 * i) + 1
 
-
 def right(i):
     return (2 * i) + 2
 
 def parent(i):
     return (i - 1) >> 1
-
 
 def build_max_heap(x):
     n = len(x)

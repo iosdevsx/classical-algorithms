@@ -66,7 +66,6 @@ class Node:
         if self.right:
             self.right.walk(code, acc + "1")
 
-
 s = input()
 
 priority_queue = []
