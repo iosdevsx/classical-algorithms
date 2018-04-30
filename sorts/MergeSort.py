@@ -1,3 +1,13 @@
+def merge_sort(x):
+    if len(x) > 1:
+        mid = len(x) // 2
+        left_part = x[:mid]
+        right_part = x[mid:]
+        merge_sort(left_part)
+        merge_sort(right_part)
+        merge(x, left_part, right_part)
+
+
 def merge(x, left_part, right_part):
     i, j, k = 0, 0, 0
     while i < len(left_part) and j < len(right_part):
@@ -8,23 +18,16 @@ def merge(x, left_part, right_part):
             x[k] = right_part[j]
             j += 1
         k += 1
-    while i < len(left_part):
-        x[k] = left_part[i]
-        k += 1
-        i += 1
-    while j < len(right_part):
-        x[k] = right_part[j]
-        j += 1
-        k += 1
 
-def merge_sort(x):
-    if len(x) > 1:
-        mid = len(x) // 2
-        left_part = x[:mid]
-        right_part = x[mid:]
-        merge_sort(left_part)
-        merge_sort(right_part)
-        merge(x, left_part, right_part)
+    merge_last_part(x, k, left_part, i)
+    merge_last_part(x, k, right_part, j)
+
+def merge_last_part(x, i, part, j):
+    while j < len(part):
+        x[i] = part[j]
+        i += 1
+        j += 1
+
 
 l = [x for x in reversed(range(1, 11))]
 print(l)
